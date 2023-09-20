@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchAllPlayers } from "../api"
 import PlayerListName from "./PlayerListName";
+import NewPlayerForm from "./NewPlayerForm";
 
 const AllPlayers = () => {
     const [players, setPlayers] = useState([]);
     const [error, setError] = useState(null);
-    const [searchParams, setSearchParams] = useState("");
-    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useState("");  
 
 
     useEffect(() => {
@@ -40,7 +40,9 @@ const AllPlayers = () => {
                     />
                 </label>
             </div>
-
+            <div>
+                <NewPlayerForm />
+            </div>
             {playersToDisplay.map((player) => {
                 return (
                     <>
