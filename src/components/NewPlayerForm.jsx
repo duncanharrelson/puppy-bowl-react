@@ -9,21 +9,20 @@ const NewPlayerForm = () => {
     const [breed, setBreed] = useState("");
     const [error, setError] = useState(null);
 
-async function handleSubmit(e) {
-    e.preventDefault();
-    try {
-        const response = await fetch(API_URL, {
-            method: "POST",
-            body: JSON.stringify({name, breed}),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        fetchAllPlayers()
-    } catch (error) {
-        setError(error.message)
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                body: JSON.stringify({name, breed}),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })            
+        } catch (error) {
+            setError(error.message)
+        }
     }
-}
 
     return ( 
         <>
